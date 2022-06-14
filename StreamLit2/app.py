@@ -31,9 +31,11 @@ if customer_id != None :
     print(response["probabilite"], response["solvabilite"])
 
     # INTERPRETABILITE
-    path = r'C:\Users\vassalr\OneDrive - STMicroelectronics\Documents\Robin\DataScience\Projets\7_ImplémentezUnModèleDeScoring'
+    # path = r'C:\Users\vassalr\OneDrive - STMicroelectronics\Documents\Robin\DataScience\Projets\7_ImplémentezUnModèleDeScoring'
+    # Get the current working directory
+    cwd = os.getcwd()
     name = "interpretability_list.joblib"
-    interpretability_list = joblib.load(os.path.join(path, name))
+    interpretability_list = joblib.load(os.path.join(cwd, name))
     html = interpretability_list[customer_id].as_html()
     components.html(html, height=800)
 
