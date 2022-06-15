@@ -36,9 +36,10 @@ st.write('You selected:', customer_id)
 print("User selected the customer_id {}".format(customer_id))
 
 # AFFICHAGE DU CLIENT
-# path_file = "/Users/Robin/DataScience/Projets/7_ImplémentezUnModèleDeScoring/X_test.joblib"
-# df = joblib.load(path_file)
-# st.dataframe(df.iloc[customer_id])
+cwd = os.getcwd()
+name = "X_test_pickled_light.pkl"
+df = joblib.load(os.path.join(cwd, name))
+st.dataframe(df.iloc[customer_id])
 
 # PREDICTION
 # using model from api
