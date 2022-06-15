@@ -7,7 +7,7 @@ import os
 # Get the current working directory
 cwd = os.getcwd()
 name = "style.css"
-file_name = joblib.load(os.path.join(cwd, name))
+file_name = os.path.join(cwd, name))
 
 def local_css(file_name):
     with open(file_name) as f:
