@@ -24,7 +24,10 @@ st.text("")
 # path = r'/Users/Robin/DataScience/Projets/7_ImplémentezUnModèleDeScoring'
 # name = "interpretability_list.joblib"
 # interpretability_list = joblib.load(os.path.join(path, name))
-
+# Get the current working directory
+cwd = os.getcwd()
+name = "interpretability_list.joblib"
+interpretability_list = joblib.load(os.path.join(cwd, name))
 
 # SELECTION DU CUSTOMER_ID
 customer_id_list = np.arange(len(interpretability_list))
@@ -60,10 +63,6 @@ if customer_id != None :
         st.write("With a probability of : {}%".format(response["probabilite"]*100))
 
     # INTERPRETABILITES
-    # Get the current working directory
-    cwd = os.getcwd()
-    name = "interpretability_list.joblib"
-    interpretability_list = joblib.load(os.path.join(cwd, name))
     if st.button("Explain Results"):
         with st.spinner('Calculating...'):
             html = interpretability_list[customer_id].as_html()
